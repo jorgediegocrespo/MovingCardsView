@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MovingCardsView" xmlns:controls="clr-namespace:PanCardView;assembly=PanCardView"
+             x:Class="MovingCardsView.MainPage">
+
+    <Grid x:Name="mainGrid">
+        <Grid RowDefinitions="*,500,*"
+              ColumnDefinitions="*,250,*">
+            <Frame x:Name="frCarousel" Grid.Row="1" Grid.Column="1"
+                   CornerRadius="20" 
+                   HasShadow="False"
+                   IsClippedToBounds="True"
+                   Padding="0" 
+                   BorderColor="Black"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                
+                <local:CustomCarouselView x:Name="cvImages" 
+                                          IsCyclical="False"
+                                          IsHorizontalOrientation="False"
+                                          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <local:CustomCarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding .}"
+                                   Aspect="AspectFill"
+                                   BackgroundColor="Transparent"
+                                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                        </DataTemplate>
+                    </local:CustomCarouselView.ItemTemplate>
+                </local:CustomCarouselView>
+            </Frame>
+        </Grid>
+    </Grid>
+
+</ContentPage>
